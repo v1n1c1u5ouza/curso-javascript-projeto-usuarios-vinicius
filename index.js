@@ -3,10 +3,7 @@ var user = {};
 
 function addline(dataUser){
 
-    var tr = document.createElement("tr");
-
-    tr.innerHTML = `
-    
+    document.getElementById("table-users").innerHTML = `
         <tr>
             <td><img src="dist/img/user1-128x128.jpg" alt="User Image" class="img-circle img-sm"></td>
             <td>${dataUser.name}</td>
