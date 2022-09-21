@@ -10,38 +10,81 @@ class User {
         this._password = password;
         this._photo = photo;
         this._admin = admin;
+        this._register = new Date();
 
+    }
+
+    get register(){
+        return this._register
+    }
+
+    set register(value){
+        this._register = value
     }
 
     get name(){
-        this._name;
+        return this._name;
+    }
+
+    set name(value){
+        this._name = value
     }
 
     get gender(){
-        this._gender;
+        return this._gender;
+    }
+    
+    set gender(value){
+        this._gender = value
     }
 
     get birth(){
-        this._birth;
+        return this._birth;
+    }
+
+    set birth(value){
+        this._birth = value
     }
 
     get country(){
-        this._country;
+        return this._country;
+    }
+
+    set country(value){
+        this._country = value
     }
 
     get email(){
-        this._email;
+        return this._email;
+    }
+
+    set email(value){
+         this._email = value
     }
 
     get password(){
-        this._password;
+        return this._password;
+    }
+
+    set password(value){
+        this._password = value
     }
 
     get photo(){
-        this._photo;
+        return this._photo;
+    }
+
+    set photo(value){
+        this._photo = value
     }
 
     get admin(){
-        this._admin;
+        return this._admin;
     }
+
+    set admin(value){
+        this._admin = value
+    }
+
+
 }
