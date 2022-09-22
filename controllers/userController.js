@@ -20,6 +20,8 @@ class UserController {
             btn.disabled = true;
 
             let values = this.getValues();
+        
+            if (!values) return false;
 
             this.getPhoto().then(
                 (content) => {
@@ -117,7 +119,7 @@ class UserController {
         if (!isValid) {
             return false;
         }
-
+        
         return new User(
             user.name, 
             user.gender, 
