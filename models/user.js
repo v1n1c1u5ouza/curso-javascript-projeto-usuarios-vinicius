@@ -2,6 +2,7 @@ class User {
 
     constructor(name, gender, birth, country, email, password, photo, admin) {
 
+        this.id;
         this._name = name;
         this._gender = gender;
         this._birth = birth;
@@ -12,6 +13,10 @@ class User {
         this._admin = admin;
         this._register = new Date();
 
+    }
+
+        get id() {
+        return this._id;
     }
 
     get register(){
@@ -135,9 +140,9 @@ class User {
 
             users.map(u => {
 
-                if (u._id === this._id) {
+                if (u._id == this._id) {
 
-                    u = this;
+                    Object.assign(u, this);
 
                 }
 
