@@ -8,6 +8,7 @@ class UserController {
 
         this.onSubmit();
         this.onEdit();
+        this.selectAll();
 
     }//end of constroctor
 
@@ -98,6 +99,8 @@ class UserController {
                 (content) => {
 
                     values.photo = content;
+
+                    this.insert(values);
 
                     this.addLine(values);
 
@@ -203,6 +206,48 @@ class UserController {
         );
 
     }//end of getValue
+
+    getusersStorage () {
+
+        let users = [];
+
+        if (localStorage.getItem("users")) {
+
+            users = JSON.parse(localStorage.getItem("users"));
+
+        }
+
+        return users
+
+    }
+
+    selectAll() {
+       
+        let users = this.getusersStorage();
+        
+        users.forEach(dataUser => {
+
+            let user = new User();
+
+            user.loadFromJSON(dataUser);
+        
+            this.addLine(user);
+
+        })
+
+    }
+
+
+    insert(data) {
+
+        let users = this.getusersStorage();
+
+        users.push(data);
+
+        localStorage.setItem("users", JSON.stringify(users));
+        //sessionStorage.setItem("users", JSON.stringify(users));
+
+    }
 
     addLine(dataUser) {
 
