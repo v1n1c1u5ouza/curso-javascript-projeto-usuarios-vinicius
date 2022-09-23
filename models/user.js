@@ -103,4 +103,57 @@ class User {
         }
     }
 
+    static getUsersStorage () {
+
+        let users = [];
+
+        if (localStorage.getItem("users")) {
+
+            users = JSON.parse(localStorage.getItem("users"));
+
+        }
+
+        return users
+
+    }
+
+    getNewID() {
+
+        if (!window.id) window.id = 0;
+
+        id++;
+
+        return id
+
+    }
+
+    save() {
+
+        let users = User.getUsersStorage();
+
+        if (this.id > 0) {
+
+            users.map(u => {
+
+                if (u._id === this._id) {
+
+                    u = this;
+
+                }
+
+                return u;
+
+            });
+
+        } else {
+
+            this._id = this.getNewID();
+
+            users.push(this);
+        }
+
+        localStorage.setItem("users", JSON.stringify(users));
+
+    }
+
 }
